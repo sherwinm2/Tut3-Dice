@@ -38,11 +38,25 @@ float Dice::getsumrollvals()
 
 float average(Dice dice, int num)
 {
-	float sum;
+	float avrg;
 
-	sum = dice.getsumrollvals() / (float)num;
+	avrg = dice.getsumrollvals() / (float)num;
 	
-	return sum;
+	return avrg;
+}
+
+float average(int arr[], int s)
+{
+	float avrg = 0;
+	int i;
+
+	for (i = 0; i < s; i++)
+	{
+		avrg = avrg + (float)arr[i];
+	}
+
+	avrg = avrg / (float)s;
+	return avrg;
 }
 
 int main()
@@ -63,7 +77,18 @@ int main()
 	}
 	
 	cout.precision(4);
-	cout <<"The average value rolled out of "<< n << " rolls is: "<< fixed << average(dice, n) << endl;
+	cout << "The average value rolled out of " << n << " rolls is: " << fixed << average(dice, n) << endl;
+
+	const int size = 10;
+	int arr[size];
+	
+	cout << endl << "Enter the 10 values to put into your array: " << endl;
+	for (i = 0; i < size; i++)
+	{
+		cin >> arr[i];
+	}
+
+	cout << "The average value of the array is: " << fixed << average(arr, size) << endl;
 
 	return 0;
 }
